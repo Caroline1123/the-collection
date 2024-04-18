@@ -1,4 +1,18 @@
 document.addEventListener("DOMContentLoaded", (event) => {
+    
+    function niceList(array, element) {
+        for (item of array) {
+            if (array.indexOf(item) != (array.length)-1) {
+                element.innerHTML += `${item} `+ `&#8226; `;
+                console.log(element.innerHTML);
+            }
+            else {
+                element.innerHTML += `${item}`;
+            }
+        }
+        return element.innerHTML;
+    }
+    
     // Adding title to the page
     document.title = "My Collection";
     // Creating variables for each existing page element
@@ -7,7 +21,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const footer = document.querySelector("footer");
     // Adding H1 to header
     const h1 = document.createElement("h1");
-    h1.innerText = "My Favourite Movies";
+    h1.innerText = "Favourite Movies";
     header.appendChild(h1);
 
     const collection = [
@@ -68,7 +82,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             released: 2001,
             mainCast: ["Elijah Wood", "Ian McKellen", "Orlando Bloom"],
             genres : ["Action", "Adventure", "Drama"],
-            imdbRating : 1,
+            imdbRating : 8.9,
             movieImg : "./assets/images/LOTR.jpg", 
         },
         {
@@ -137,19 +151,29 @@ document.addEventListener("DOMContentLoaded", (event) => {
         // Director
         const director = document.createElement("p");
         director.classList.add("director");
+        director.innerText = `by ${movie["director"]}`;
         // Ratings 
         const rating = document.createElement("div");
         rating.classList.add("rating");
+        const total = document.createElement("strong");
+        total.innerText = " / 10"
+        rating.innerHTML = `&#9733;`+` ${movie["imdbRating"] }`
+        rating.appendChild(total);
 
         const cast = document.createElement("p");
         cast.classList.add("cast");
+        cast.innerHTML = `<strong> &#9733; Starring &#9733;</strong>`;
+        cast.innerHTML = niceList(movie["mainCast"], cast);
         const genres = document.createElement("p");
         genres.classList.add("genres");
+        genres.innerHTML = niceList(movie["genres"], genres);
 
         // Adds content to elements
-        director.innerText = `by ${movie["director"]}`;
         content.appendChild(title);
         content.appendChild(director);
         content.appendChild(rating);
+        content.appendChild(cast);
+        content.appendChild(genres);
     }
+
 })
