@@ -8,14 +8,19 @@ body {
   background-color: black;
   background-size: cover;
   font-family: "Roboto", sans-serif;
-  margin: 4vh 0 4vh 0;
+  margin: 4vh 0 8vh 0;
   color: white;
 }
 
 h1 {
   text-align: center;
-  text-transform: uppercase;
+  margin: 6vh 0;
   font-family: "Lilita", sans-serif;
+  letter-spacing: 0.5rem;
+  font-size: 5vw;
+}
+h1 span {
+  color: rgb(119, 31, 31);
 }
 
 main {
@@ -40,17 +45,18 @@ div.movie {
   border-radius: 10%;
   box-sizing: border-box;
   position: relative;
-  box-shadow: 4px 4px 4px rgba(255, 255, 255, 0.2);
+  box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.5);
   background-size: cover;
 }
 
 .content {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
   bottom: 0;
   height: 30%;
-  width: 100%;
+  width: 95%;
   padding: 1vh;
+  transition: 0.5s;
 }
 .content > * {
   margin-top: 0.5vw;
@@ -86,8 +92,17 @@ div.movie {
   font-size: 12px;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
 .cast {
   display: none;
+  animation: fadeIn 1s;
   justify-self: center;
   font-size: 13px;
   text-align: center;
@@ -121,4 +136,24 @@ div.movie {
 }
 .movie:hover .cast {
   display: block;
+}
+.movie:hover .button {
+  display: block;
+}
+
+.button {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  padding: 5px 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgb(211, 211, 157);
+  font-size: 17px;
+  background-color: rgb(119, 31, 31);
+}
+.button:hover {
+  transform: scale(110%);
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

@@ -1,5 +1,10 @@
 h1 {
     text-align: center;
-    text-transform: uppercase;
+    margin: 6vh 0;
     font-family: $mainTitle;
+    letter-spacing: 0.5rem;
+    font-size: 5vw;
+    span {
+        color: $redText;
+    }
 }

@@ -3,16 +3,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
     function niceList(array, element) {
         for (item of array) {
             if (array.indexOf(item) != (array.length)-1) {
-                element.innerHTML += `${item} `+ `&#8226; `;
-                console.log(element.innerHTML);
+                element.innerHTML += ` ${item} `+ `&#8226;`;
             }
             else {
-                element.innerHTML += `${item}`;
+                element.innerHTML += ` ${item}`;
             }
         }
         return element.innerHTML;
     }
-    
+
     // Adding title to the page
     document.title = "My Collection";
     // Creating variables for each existing page element
@@ -21,12 +20,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const footer = document.querySelector("footer");
     // Adding H1 to header
     const h1 = document.createElement("h1");
-    h1.innerText = "Favourite Movies";
+    h1.innerHTML = "<span>F</span>avourite <span>M</span>ovies";
     header.appendChild(h1);
 
-    const collection = [
+    const collection =
+    [
         {
-            id : 1,
+            id : 0,
             name: "The Prestige",
             director: "Christopher Nolan",
             released: 2006,
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             movieImg : "./assets/images/the_prestige.jpg", 
         },
         {
-            id : 2,
+            id : 1,
             name: "Forrest Gump",
             director: "Robert Zemeckis",
             released: 1994 ,
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             movieImg : "./assets/images/forrest_gump.jpg", 
         },
         {
-            id : 3,
+            id : 2,
             name: "Dune: Part Two",
             director: "Denis Villeneuve",
             released: 2024 ,
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             movieImg : "./assets/images/dune2.jpg", 
         },
         {
-            id : 4,
+            id : 3,
             name: "The Shawshank Redemption",
             director: "Frank Darabont",
             released:1994 ,
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             movieImg : "./assets/images/shawshank_redemption.jpg", 
         },
         {
-            id : 5,
+            id : 4,
             name: "Schindler's List",
             director: "Steven Spielberg",
             released:1993,
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             movieImg : "./assets/images/schindlers_list.jpg", 
         },
         {
-            id : 6,
+            id : 5,
             name: "The Lord of the Rings: The Fellowship of the Ring",
             director: "Peter Jackson",
             released: 2001,
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             movieImg : "./assets/images/LOTR.jpg", 
         },
         {
-            id : 7,
+            id : 6,
             name: "Gladiator",
             director: "Ridley Scott",
             released: 2000,
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             movieImg : "./assets/images/gladiator.jpg", 
         },
         {
-            id : 8,
+            id : 7,
             name: "Braveheart",
             director: "Mel Gibson",
             released: 1995,
@@ -106,24 +106,34 @@ document.addEventListener("DOMContentLoaded", (event) => {
             movieImg : "./assets/images/braveheart.jpg", 
         },
         {
-            id : 9,
-            name: "Shaun of the Dead",
-            director: "Edgar Wright",
-            released: 2004,
-            mainCast: ["Simon Pegg", "Nick Frost", "Kate Ashfield"],
-            genres : ["Comedy", "Horror"],
-            imdbRating : 7.9,
-            movieImg : "./assets/images/shaun_of_the_dead.jpg", 
+            id : 8,
+            name: "Shutter Island",
+            director: "Martin Scorsese",
+            released: 2010,
+            mainCast: ["Leonardo DiCaprio", "Emily Mortimer", "Mark Ruffalo"],
+            genres : ["Drama", "Mystery", "Thriller"],
+            imdbRating : 8.2,
+            movieImg : "./assets/images/shutter_island.jpg", 
         },
         {
-            id : 10,
+            id : 9,
             name: "Seven",
             director: "David Fincher",
             released: 1995,
             mainCast: ["Morgan Freeman", "Brad Pitt", "Kevin Spacey"],
-            genres : ["Drama", "Crime", "Mystery"],
-            imdbRating : 8.6,
-            movieImg : "./assets/images/Seven.jpg", 
+            genres: ["Drama", "Crime", "Mystery"],
+            imdbRating: 8.6,
+            movieImg: "./assets/images/Seven.jpg", 
+        },
+        {
+            id: 10,
+            name: "The Shining",
+            director: "Stanley Kubrick",
+            released: 1980,
+            mainCast: ["Jack Nicholson", "Shelley Duvall", "Danny Lloyd"],
+            genres: ["Drama", "Horror"],
+            imdbRating: 8.4,
+            movieImg: "./assets/images/the_shining.jpg",
         }
     ]
     // Adding divs to main
@@ -144,9 +154,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
         // Creates elements for movie card content
         // title + year and contents
         const title = document.createElement("h2");
-        title.innerText = `${movie["name"]}, `;
+        title.innerText = `${movie["name"]},`;
         const year = document.createElement("strong");
-        year.innerText = movie["released"];
+        year.innerText = " " + movie["released"];
         title.appendChild(year);
         // Director
         const director = document.createElement("p");
@@ -157,7 +167,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         rating.classList.add("rating");
         const total = document.createElement("strong");
         total.innerText = " / 10"
-        rating.innerHTML = `&#9733;`+` ${movie["imdbRating"] }`
+        rating.innerHTML = `&#9733;`+` ${movie["imdbRating"]}`
         rating.appendChild(total);
 
         const cast = document.createElement("p");
@@ -167,13 +177,28 @@ document.addEventListener("DOMContentLoaded", (event) => {
         const genres = document.createElement("p");
         genres.classList.add("genres");
         genres.innerHTML = niceList(movie["genres"], genres);
-
+        const button = document.createElement("p");
+        button.classList.add("button", `${movie["id"]}`);
+        button.innerText = "remove";
         // Adds content to elements
         content.appendChild(title);
         content.appendChild(director);
         content.appendChild(rating);
         content.appendChild(cast);
         content.appendChild(genres);
+        div.appendChild(button);
     }
 
+    const removeButtons = document.querySelectorAll(".button");  
+    for (button of removeButtons) {
+        button.addEventListener("click", event => {
+            let id = button.classList[1];
+            console.log(button.classList);
+            for (movie of collection) {
+                if (movie["id"] == id) {
+                    console.log(movie)
+                }
+            }
+        });
+    }    
 })
