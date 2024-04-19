@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", (event) => {
     
+    // Transforms an array into a string with bullet point separators
     function niceList(array, element) {
         for (item of array) {
             if (array.indexOf(item) != (array.length)-1) {
@@ -17,7 +18,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // Creating variables for each existing page element
     const header = document.querySelector("header");
     const main = document.querySelector("main");
-    const footer = document.querySelector("footer");
     // Adding H1 to header
     const h1 = document.createElement("h1");
     h1.innerHTML = "<span>F</span>avourite <span>M</span>ovies";
@@ -136,17 +136,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
             movieImg: "./assets/images/the_shining.jpg",
         }
     ]
+
     // Adding divs to main
     for (movie of collection) {
-        // Creates a div for the movie
+        // Creates a div for the movie card
         const div = document.createElement("div");
         div.classList.add("movie");
         // Adds background image
         div.style.backgroundImage = `url(${movie["movieImg"]})`;
-        // // Adds div to page
+        // Adds the card to the webpage
         main.appendChild(div);
         
-        // Add div for movie info 
+        // Add div to contain movie info 
         const content = document.createElement("div");
         content.classList.add("content");
         div.appendChild(content);
@@ -154,10 +155,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         // Creates elements for movie card content
         // title + year and contents
         const title = document.createElement("h2");
-        title.innerText = `${movie["name"]},`;
-        const year = document.createElement("strong");
-        year.innerText = " " + movie["released"];
-        title.appendChild(year);
+        title.innerHTML = `${movie["name"]}, <strong>${movie["released"]}</strong>`;
         // Director
         const director = document.createElement("p");
         director.classList.add("director");
@@ -165,21 +163,37 @@ document.addEventListener("DOMContentLoaded", (event) => {
         // Ratings 
         const rating = document.createElement("div");
         rating.classList.add("rating");
-        const total = document.createElement("strong");
-        total.innerText = " / 10"
-        rating.innerHTML = `&#9733;`+` ${movie["imdbRating"]}`
-        rating.appendChild(total);
-
+        rating.innerHTML = `&#9733;`+` ${movie["imdbRating"]} <strong>/10</strong>`
+        //cast
         const cast = document.createElement("p");
         cast.classList.add("cast");
         cast.innerHTML = `<strong> &#9733; Starring &#9733;</strong>`;
         cast.innerHTML = niceList(movie["mainCast"], cast);
+        //movie genres
         const genres = document.createElement("p");
         genres.classList.add("genres");
         genres.innerHTML = niceList(movie["genres"], genres);
+        //Remove button 
         const button = document.createElement("p");
         button.classList.add("button", `${movie["id"]}`);
         button.innerText = "remove";
+        // Adds event listener to button 
+        button.addEventListener("click", (event) => {
+            const removedCardWidth = div.offsetWidth;
+            console.log(removedCardWidth);
+            div.style.animationPlayState = 'running';
+            div.addEventListener('animationend', () => {
+                div.style.display = 'none';
+                // Adjust the position of the remaining cards
+                const cards = document.querySelectorAll('.card');
+                cards.forEach(card => {
+                    if (card !== div) {
+                        card.style.transform = `translateX(-${removedCardWidth}px)`;
+                    }
+                });
+            });
+        });
+
         // Adds content to elements
         content.appendChild(title);
         content.appendChild(director);
@@ -189,16 +203,4 @@ document.addEventListener("DOMContentLoaded", (event) => {
         div.appendChild(button);
     }
 
-    const removeButtons = document.querySelectorAll(".button");  
-    for (button of removeButtons) {
-        button.addEventListener("click", event => {
-            let id = button.classList[1];
-            console.log(button.classList);
-            for (movie of collection) {
-                if (movie["id"] == id) {
-                    console.log(movie)
-                }
-            }
-        });
-    }    
 })
