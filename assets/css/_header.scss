@@ -1,5 +1,18 @@
+header {
+    text-align : center;
+    div {
+        align-items: center;
+        padding-left: 10vh;
+        border: 1px solid red;
+        img {
+            height: 50px;
+            width: 50px;
+            border: 1px solid red;
+        }
+    }
+}
+
 h1 {
-    text-align: center;
     margin: 6vh 0;
     font-family: $mainTitle;
     letter-spacing: 0.5rem;

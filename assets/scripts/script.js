@@ -22,6 +22,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const h1 = document.createElement("h1");
     h1.innerHTML = "<span>F</span>avourite <span>M</span>ovies";
     header.appendChild(h1);
+    // Add filter container
+    // const filterSection = document.createElement("div");
+    // filterSection.innerHTML = `<img src="./assets/images/filter-list-svgrepo-com.svg" alt="filter icon"> Search movie by genre`;
+    // header.appendChild(filterSection);
+    
 
     const collection =
     [
@@ -179,18 +184,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
         button.innerText = "remove";
         // Adds event listener to button 
         button.addEventListener("click", (event) => {
-            const removedCardWidth = div.offsetWidth;
-            console.log(removedCardWidth);
             div.style.animationPlayState = 'running';
             div.addEventListener('animationend', () => {
                 div.style.display = 'none';
-                // Adjust the position of the remaining cards
-                const cards = document.querySelectorAll('.card');
-                cards.forEach(card => {
-                    if (card !== div) {
-                        card.style.transform = `translateX(-${removedCardWidth}px)`;
-                    }
-                });
             });
         });
 
@@ -202,5 +198,4 @@ document.addEventListener("DOMContentLoaded", (event) => {
         content.appendChild(genres);
         div.appendChild(button);
     }
-
 })

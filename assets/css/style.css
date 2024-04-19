@@ -13,8 +13,21 @@ body {
   color: white;
 }
 
-h1 {
+header {
   text-align: center;
+}
+header div {
+  align-items: center;
+  padding-left: 10vh;
+  border: 1px solid red;
+}
+header div img {
+  height: 50px;
+  width: 50px;
+  border: 1px solid red;
+}
+
+h1 {
   margin: 6vh 0;
   font-family: "Lilita", sans-serif;
   letter-spacing: 0.5rem;
@@ -48,7 +61,7 @@ div.movie {
   box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.5);
   background-size: cover;
   animation-name: hide;
-  animation-duration: 1.5s;
+  animation-duration: 1s;
   animation-fill-mode: forwards;
   animation-play-state: paused;
 }
@@ -108,7 +121,9 @@ div.movie {
   100% {
     opacity: 0;
     width: 0;
-    display: none;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
   }
 }
 @keyframes fadeIn {
@@ -161,8 +176,8 @@ div.movie {
 .button {
   display: none;
   position: absolute;
-  top: 0.5vw;
-  right: 0.8vw;
+  top: 7px;
+  right: 10px;
   padding: 0.2vw 0.4vw;
   font-weight: bold;
   text-transform: uppercase;
