@@ -1,23 +1,36 @@
 header {
     text-align : center;
-    div {
-        align-items: center;
-        padding-left: 10vh;
-        border: 1px solid red;
-        img {
-            height: 50px;
-            width: 50px;
-            border: 1px solid red;
-        }
-    }
 }
 
 h1 {
     margin: 6vh 0;
     font-family: $mainTitle;
-    letter-spacing: 0.5rem;
+    letter-spacing: 0.3rem;
     font-size: 5vw;
     span {
         color: $redText;
     }
+}
+
+.filters {
+    align-items: center;
+    p {
+        font-size: 2.5vh;
+        padding-bottom : 2vh;
+    }
+    button {
+        cursor : pointer;
+        width: 5%;
+        padding : 10px;
+        font-weight: bold;
+        // background-color: rgb(125,125,125);
+        &:hover {
+            transform : scale(105%);
+            // background-color: rgb(175,175,175);
+        }
+    }
+}
+
+.active {
+    background-color: rgb(175, 175,175);
 }

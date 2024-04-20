@@ -1,4 +1,24 @@
 document.addEventListener("DOMContentLoaded", (event) => {
+
+    function filterSelection(genre) {
+        const cards = document.querySelectorAll(".movie");
+        for (card of cards) {
+            card.style.display = " inline";
+            if (genre === "all") {
+                card.style.display = " inline";
+            }
+            else {
+                const genres = card.querySelectorAll(".genres");
+                for (let item of genres) {
+                    item = [...item.classList];
+                    if (!item.includes(genre)) {
+                        card.style.display="none";
+                    }
+                }
+            }
+        }
+    }
+
     // Adding title to the page
     document.title = "My Collection";
     // Creating variables for each existing page element
@@ -8,7 +28,39 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const h1 = document.createElement("h1");
     h1.innerHTML = "<span>F</span>avourite <span>M</span>ovies";
     header.appendChild(h1);
-    
+    // Adds filter element
+    const filterSelect = document.createElement("div");
+    filterSelect.classList.add("filters");
+    filterSelect.innerHTML = 
+    `   <p>Filter by Movie Genre</p>
+        <button class="active" data-genre='all'>Show all</button>
+        <button data-genre='action'>Action</button>    
+        <button data-genre='adventure'>Adventure</button>
+        <button data-genre='biography'>Biography</button>    
+        <button data-genre='crime'>Crime</button>    
+        <button data-genre='drama'>Drama</button>
+        <button data-genre='horror'>Horror</button>    
+        <button data-genre='history'>History</button>    
+        <button data-genre='mystery'>Mystery</button>    
+        <button data-genre='romance'>Romance</button>
+        <button data-genre='sci-fi'>Sci-Fi</button>    
+        <button data-genre='thriller'>Thriller</button>    
+        <button data-genre='war'>War</button>`;
+
+    filterSelect.addEventListener("click", (event) => {
+        const buttons = document.querySelectorAll("button");
+        for (button of buttons) {
+            button.classList.remove("active");
+        }
+        const genre = event.target.dataset.genre;
+        if (event.target.tagName === "BUTTON") {
+            event.target.classList.add("active");
+            filterSelection(genre);
+        }
+    })
+
+    header.appendChild(filterSelect);
+
     // Transforms an array into a string with bullet point separators
     function niceList(array, element) {
         for (let item of array) {
@@ -57,6 +109,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
         //movie genres
         const genres = document.createElement("p");
         genres.classList.add("genres");
+        for (genre of movie["genres"]) {
+            genres.classList.add(genre.toLowerCase());
+        }
         genres.innerHTML = niceList(movie["genres"], genres);
         //Remove button 
         const button = document.createElement("p");
@@ -79,7 +134,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         div.appendChild(button);
         }
     }
-
+    // Retrieve movie info and create the cards using the createCards function
     fetch("./assets/movies.json")
         .then(res => res.json())
         .then(data => {
