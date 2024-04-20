@@ -5,8 +5,8 @@
 }
 
 body {
-  background-image: linear-gradient(135deg, rgba(107, 107, 107, 0.06) 0%, rgba(107, 107, 107, 0.06) 50%, rgba(202, 202, 202, 0.06) 50%, rgba(202, 202, 202, 0.06) 100%), linear-gradient(90deg, rgb(20, 20, 20), rgb(20, 20, 20));
-  background-size: 30px 30px;
+  background-image: linear-gradient(67.5deg, rgb(6, 6, 6) 0%, rgb(6, 6, 6) 6%, rgb(29, 29, 29) 6%, rgb(29, 29, 29) 57%, rgb(52, 52, 52) 57%, rgb(52, 52, 52) 58%, rgb(75, 75, 75) 58%, rgb(75, 75, 75) 79%, rgb(97, 97, 97) 79%, rgb(97, 97, 97) 93%, rgb(120, 120, 120) 93%, rgb(120, 120, 120) 95%, rgb(143, 143, 143) 95%, rgb(143, 143, 143) 100%), linear-gradient(90deg, rgb(6, 6, 6) 0%, rgb(6, 6, 6) 6%, rgb(29, 29, 29) 6%, rgb(29, 29, 29) 57%, rgb(52, 52, 52) 57%, rgb(52, 52, 52) 58%, rgb(75, 75, 75) 58%, rgb(75, 75, 75) 79%, rgb(97, 97, 97) 79%, rgb(97, 97, 97) 93%, rgb(120, 120, 120) 93%, rgb(120, 120, 120) 95%, rgb(143, 143, 143) 95%, rgb(143, 143, 143) 100%), linear-gradient(135deg, rgb(6, 6, 6) 0%, rgb(6, 6, 6) 6%, rgb(29, 29, 29) 6%, rgb(29, 29, 29) 57%, rgb(52, 52, 52) 57%, rgb(52, 52, 52) 58%, rgb(75, 75, 75) 58%, rgb(75, 75, 75) 79%, rgb(97, 97, 97) 79%, rgb(97, 97, 97) 93%, rgb(120, 120, 120) 93%, rgb(120, 120, 120) 95%, rgb(143, 143, 143) 95%, rgb(143, 143, 143) 100%), linear-gradient(0deg, rgb(6, 6, 6) 0%, rgb(6, 6, 6) 6%, rgb(29, 29, 29) 6%, rgb(29, 29, 29) 57%, rgb(52, 52, 52) 57%, rgb(52, 52, 52) 58%, rgb(75, 75, 75) 58%, rgb(75, 75, 75) 79%, rgb(97, 97, 97) 79%, rgb(97, 97, 97) 93%, rgb(120, 120, 120) 93%, rgb(120, 120, 120) 95%, rgb(143, 143, 143) 95%, rgb(143, 143, 143) 100%), linear-gradient(90deg, rgb(8, 8, 8), rgb(61, 61, 61));
+  background-blend-mode: overlay, overlay, overlay, overlay, normal;
   background-size: cover;
   font-family: "Roboto", sans-serif;
   margin: 4vh 0 8vh 0;
@@ -30,23 +30,34 @@ h1 span {
 
 .filters {
   align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  width: 90%;
+  margin: 0 5%;
 }
 .filters p {
+  flex: 100%;
   font-size: 2.5vh;
   padding-bottom: 2vh;
 }
 .filters button {
+  flex: 6%;
+  min-width: 100px;
+  max-width: 100px;
   cursor: pointer;
-  width: 5%;
-  padding: 10px;
+  margin: 5px;
+  padding: 8px;
   font-weight: bold;
+  background-color: white;
 }
 .filters button:hover {
   transform: scale(105%);
 }
 
 .active {
-  background-color: rgb(175, 175, 175);
+  color: rgb(119, 31, 31);
 }
 
 main {

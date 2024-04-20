@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     function filterSelection(genre) {
         const cards = document.querySelectorAll(".movie");
-        for (card of cards) {
+        for (let card of cards) {
             card.style.display = " inline";
             if (genre === "all") {
                 card.style.display = " inline";

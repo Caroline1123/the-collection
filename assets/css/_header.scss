@@ -14,23 +14,32 @@ h1 {
 
 .filters {
     align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content:center;
+    width : 90%;
+    margin: 0 5%;
     p {
+        flex: 100%;
         font-size: 2.5vh;
         padding-bottom : 2vh;
     }
     button {
+        flex: 6%;
+        min-width : 100px;
+        max-width : 100px;
         cursor : pointer;
-        width: 5%;
-        padding : 10px;
+        margin : 5px;
+        padding : 8px;
         font-weight: bold;
-        // background-color: rgb(125,125,125);
+        background-color: white;
         &:hover {
             transform : scale(105%);
-            // background-color: rgb(175,175,175);
         }
     }
 }
 
 .active {
-    background-color: rgb(175, 175,175);
+    color: $redText;
 }
