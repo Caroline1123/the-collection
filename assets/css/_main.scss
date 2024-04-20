@@ -19,12 +19,8 @@ div.movie {
     border-radius:10%;
     box-sizing: border-box;
     position:relative;
-    box-shadow: 5px 5px 10px rgba(255,255,255,0.5);
+    box-shadow: 5px 5px 10px rgba(255,255,255,0.2);
     background-size: cover;
-    animation-name: hide;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    animation-play-state: paused;
 }
 
 .content {
@@ -68,18 +64,6 @@ div.movie {
     font-size: 14px;
     strong {
         font-size: 10px;
-    }
-}
-
-//Animations
-@keyframes hide {
-    0% {
-        opacity: 1;
-        width: 100%; 
-    }
-    100% {
-        opacity : 0;
-        width: 0;
     }
 }
 
@@ -137,8 +121,8 @@ div.movie {
     font-weight: bold;
     text-transform: uppercase;
     color: $yellowText;
-    font-size: 14px;
     background-color: $redText;
+    font-size: 14px;
     &:hover {
         transform : scale(110%);
         cursor:pointer;

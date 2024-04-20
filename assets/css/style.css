@@ -44,20 +44,24 @@ h1 span {
 }
 .filters button {
   flex: 6%;
-  min-width: 100px;
-  max-width: 100px;
+  min-width: 80px;
+  max-width: 80px;
   cursor: pointer;
+  border: none;
+  border-radius: 20px;
   margin: 5px;
-  padding: 8px;
+  padding: 10px 6px;
   font-weight: bold;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 .filters button:hover {
   transform: scale(105%);
 }
 
-.active {
+button.active {
+  background-color: white;
   color: rgb(119, 31, 31);
+  font-weight: bolder;
 }
 
 main {
@@ -81,12 +85,8 @@ div.movie {
   border-radius: 10%;
   box-sizing: border-box;
   position: relative;
-  box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.5);
+  box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.2);
   background-size: cover;
-  animation-name: hide;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  animation-play-state: paused;
 }
 
 .content {
@@ -133,16 +133,6 @@ div.movie {
   font-size: 10px;
 }
 
-@keyframes hide {
-  0% {
-    opacity: 1;
-    width: 100%;
-  }
-  100% {
-    opacity: 0;
-    width: 0;
-  }
-}
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -199,8 +189,8 @@ div.movie {
   font-weight: bold;
   text-transform: uppercase;
   color: rgb(211, 211, 157);
-  font-size: 14px;
   background-color: rgb(119, 31, 31);
+  font-size: 14px;
 }
 .button:hover {
   transform: scale(110%);

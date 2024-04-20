@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", (event) => {
-
     function filterSelection(genre) {
         const cards = document.querySelectorAll(".movie");
         for (let card of cards) {
@@ -119,12 +118,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
         button.innerText = "remove";
         // Adds event listener to button 
         button.addEventListener("click", (event) => {
-            div.style.animationPlayState = 'running';
-            div.addEventListener('animationend', () => {
-                div.style.display = 'none';
-            });
+            div.animate([{opacity:1}, {opacity: 0}], 1000).addEventListener("finish", function() {
+                div.style.display= "none";
+            })
         });
-        
         // Adds content to elements
         content.appendChild(title);
         content.appendChild(director);

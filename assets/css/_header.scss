@@ -27,19 +27,23 @@ h1 {
     }
     button {
         flex: 6%;
-        min-width : 100px;
-        max-width : 100px;
+        min-width : 80px;
+        max-width : 80px;
         cursor : pointer;
+        border: none;
+        border-radius: 20px;
         margin : 5px;
-        padding : 8px;
+        padding : 10px 6px;
         font-weight: bold;
-        background-color: white;
+        background-color: rgba(255,255,255,0.5);
         &:hover {
             transform : scale(105%);
         }
     }
 }
 
-.active {
+button.active {
+    background-color: white;
     color: $redText;
+    font-weight: bolder;
 }
