@@ -3,16 +3,14 @@ main {
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-    max-height: 100%;
-    max-width : 100%;
     margin : 4vh 2vh;
     box-sizing: border-box;
 }
 
 div.movie {
     min-height: 50vh;
-    min-width: 37vh;
     max-height: 50vh;
+    min-width: 37vh;
     max-width: 37vh;
     margin : 3vh;
     overflow: hidden;
@@ -53,13 +51,16 @@ div.movie {
     font-size: 12px;
 }
 
+.rating, .button {
+    color: $yellowText;
+    background-color: $redText;
+}
+
 .rating {
     position: absolute;
     padding : 0.2vw 0.4vw;
     display: inline;
     top: -1.6vw;
-    color: $yellowText;
-    background-color: $redText;
     font-weight:bolder;
     font-size: 14px;
     strong {
@@ -95,8 +96,8 @@ div.movie {
     transform: translateX(-60%);
     background-color: black;
     border: 1px solid white;
-    position : absolute;
     padding: 0.2vw 0.4vw;
+    position: absolute;
     bottom: 0;
 }
 
@@ -104,11 +105,8 @@ div.movie {
     .content {
         height: 25vh;
     }
-    .cast {
+    .cast, .button {
         display: block;
-    }
-    .button {
-        display:block;
     }
 }
 
@@ -120,8 +118,6 @@ div.movie {
     padding : 0.2vw 0.4vw;
     font-weight: bold;
     text-transform: uppercase;
-    color: $yellowText;
-    background-color: $redText;
     font-size: 14px;
     &:hover {
         transform : scale(110%);

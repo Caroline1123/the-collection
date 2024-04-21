@@ -13,17 +13,15 @@ h1 {
 }
 
 .filters {
-    align-items: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-content:center;
     width : 90%;
     margin: 0 5%;
     p {
         flex: 100%;
-        font-size: 2.5vh;
-        padding-bottom : 2vh;
+        font-size: 2.5vw;
+        margin-bottom:2vh;
     }
     button {
         flex: 6%;
@@ -32,7 +30,7 @@ h1 {
         cursor : pointer;
         border: none;
         border-radius: 20px;
-        margin : 5px;
+        margin:5px;
         padding : 10px 6px;
         font-weight: bold;
         background-color: rgba(255,255,255,0.5);

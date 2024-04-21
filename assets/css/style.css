@@ -29,18 +29,16 @@ h1 span {
 }
 
 .filters {
-  align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-content: center;
   width: 90%;
   margin: 0 5%;
 }
 .filters p {
   flex: 100%;
-  font-size: 2.5vh;
-  padding-bottom: 2vh;
+  font-size: 2.5vw;
+  margin-bottom: 2vh;
 }
 .filters button {
   flex: 6%;
@@ -69,16 +67,14 @@ main {
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
-  max-height: 100%;
-  max-width: 100%;
   margin: 4vh 2vh;
   box-sizing: border-box;
 }
 
 div.movie {
   min-height: 50vh;
-  min-width: 37vh;
   max-height: 50vh;
+  min-width: 37vh;
   max-width: 37vh;
   margin: 3vh;
   overflow: hidden;
@@ -119,13 +115,16 @@ div.movie {
   font-size: 12px;
 }
 
+.rating, .button {
+  color: rgb(211, 211, 157);
+  background-color: rgb(119, 31, 31);
+}
+
 .rating {
   position: absolute;
   padding: 0.2vw 0.4vw;
   display: inline;
   top: -1.6vw;
-  color: rgb(211, 211, 157);
-  background-color: rgb(119, 31, 31);
   font-weight: bolder;
   font-size: 14px;
 }
@@ -165,18 +164,15 @@ div.movie {
   transform: translateX(-60%);
   background-color: black;
   border: 1px solid white;
-  position: absolute;
   padding: 0.2vw 0.4vw;
+  position: absolute;
   bottom: 0;
 }
 
 .movie:hover .content {
   height: 25vh;
 }
-.movie:hover .cast {
-  display: block;
-}
-.movie:hover .button {
+.movie:hover .cast, .movie:hover .button {
   display: block;
 }
 
@@ -188,8 +184,6 @@ div.movie {
   padding: 0.2vw 0.4vw;
   font-weight: bold;
   text-transform: uppercase;
-  color: rgb(211, 211, 157);
-  background-color: rgb(119, 31, 31);
   font-size: 14px;
 }
 .button:hover {
