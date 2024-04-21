@@ -108,5 +108,15 @@
         "genres": ["Drama", "Horror"],
         "imdbRating": 8.4,
         "movieImg": "./assets/images/the_shining.jpg"
+    },
+    {
+        "id": 12,
+        "name": "The Departed",
+        "director": "Martin Scorsese",
+        "released": 2006,
+        "mainCast": ["Leonardo DiCaprio", "Matt Damon", "Jack Nicholson"],
+        "genres": ["Drama", "Crime", "Thriller"],
+        "imdbRating": 8.5,
+        "movieImg": "./assets/images/the_departed.jpg"
     }
 ]
